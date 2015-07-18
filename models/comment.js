@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Comment = sequelize.define('Comment', {
-    text: DataTypes.VARCHAR(140)
+    text: DataTypes.CHAR(140)
   }, {
     classMethods: {
       associate: function(models) {

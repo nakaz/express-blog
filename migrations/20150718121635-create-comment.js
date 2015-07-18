@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       text: {
-        type: Sequelize.VARCHAR(140)
+        type: Sequelize.CHAR(140)
       },
       createdAt: {
         allowNull: false,
