@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "Sean",
+    "password": null,
+    "database": "express_blog",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
