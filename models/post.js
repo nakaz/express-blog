@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.TEXT,
     content: DataTypes.TEXT
   }, {
+    underscored: true,
     classMethods: {
       associate: function(models) {
         models.Post.hasMany(models.Comment);
