@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         models.Comment.belongsTo(models.Post);
+        models.Comment.belongsTo(models.User);
       }
     }
   });
