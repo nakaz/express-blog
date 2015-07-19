@@ -6,10 +6,10 @@ models.sequelize
   .sync({force: true})
   .then(function (){
     //Add Post
-    var posts = [];
-    var number = Math.floor(Math.random() * 100) + 1;
-    for (var i = 0; i < number; i++){
-      posts.push(
+    var postData = [];
+    var totalPosts = faker.random.number({min:1, max: 100});
+    for (var i = 0; i < totalPosts; i++){
+      postData.push(
         {
           title: faker.lorem.words().join(' '),
           content: faker.lorem.paragraphs()
@@ -17,13 +17,13 @@ models.sequelize
       );
     }
     return models.Post
-      .bulkCreate(posts, {returning: true});
+      .bulkCreate(postData, {returning: true});
   })
   .then(function(posts){
     //Create Comments
     var commentData = [];
-    var number = Math.floor(Math.random() * 100) + 1;
-    for (var i = 0; i < number; i++){
+    var totalComments = faker.random.number({min:1, max: 100});
+    for (var i = 0; i < totalComments; i++){
       commentData.push(
         {text: faker.lorem.sentence()}
         );
@@ -31,9 +31,9 @@ models.sequelize
     return models.Comment
       .bulkCreate(commentData, {returning: true})
       .then(function(comments){
-          comments.forEach(function(comment, array, index){
+          comments.forEach(function(element){
             var randomPost = faker.random.arrayElement(posts);
-            randomPost.addComment(comment);
+            randomPost.addComment(element);
           });
       });
   });
