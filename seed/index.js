@@ -38,7 +38,7 @@ models.sequelize
           return comments;
       })
       .then(function (comments){
-        //Add Users
+        //Add User
         var userData = [];
         var totalUsers = faker.random.number({min:1, max:20});
         for (var i = 0; i < totalUsers; i++){
